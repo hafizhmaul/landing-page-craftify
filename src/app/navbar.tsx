@@ -15,6 +15,7 @@ const navItems = {
   },
   "#products": {
     name: "Products",
+    offset: 0
   },
 };
 
