@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { Element } from "react-scroll";
+import { Element, Link } from "react-scroll";
 
 import { useEffect, useState } from "react";
 import { AiOutlineCrown } from "react-icons/ai";
@@ -42,12 +42,16 @@ const HeroSection = () => {
             that are functional and stylish.
           </div>
         </div>
-        <Button
-          text="See Products"
-          onClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
+        <Link
+          key={"Products"}
+          activeClass="active"
+          to={"Products"}
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
+          <Button text="See Products" onClick={() => {}} />
+        </Link>
       </div>
       <div
         className={`relative flex items-center justify-center transition-transform delay-500 duration-500 tablet:delay-0 ${

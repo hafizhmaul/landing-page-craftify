@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Slide } from "react-awesome-reveal";
 import { Element } from "react-scroll";
 import Button from "../../atoms/Button/Button";
 import Modal from "../../molecules/Modal/Modal";
@@ -65,42 +66,48 @@ const ProductSection = () => {
   return (
     <Element name="Products">
       <div className="flex h-full min-h-screen flex-col items-center justify-start bg-[#ffdee6] bg-[url('/img/grid-cylinder.svg')] bg-cover bg-fixed bg-bottom bg-no-repeat p-16 mobile:px-2 mobile:py-8">
-        <div className="mb-12 p-4 text-5xl font-bold uppercase text-black mobile:text-4xl">
-          Our Product
-        </div>
+        <Slide direction="up" triggerOnce={true}>
+          <div className="mb-12 p-4 text-5xl font-bold uppercase text-black mobile:text-4xl">
+            Our Product
+          </div>
+        </Slide>
         {isLoading ? (
           <div className="loader" />
         ) : (
-          <div className="z-10 mb-8 grid grid-cols-6 justify-center gap-8 tablet:grid-cols-3 mobile:grid-cols-2">
-            {ProductList?.map((item: ProductType) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  setShowModal(true);
-                  setSelectedProduct(item);
-                }}
-                className="h-52 w-40 border-2 border-black bg-white  shadow-[7px_10px_0px_0px_#000000] hover:scale-105 hover:cursor-pointer hover:transition-all hover:duration-200"
-              >
-                <img
-                  src={item.image || imgDefault}
-                  alt={`${item.name}-img`}
-                  className="h-[60%] w-40 object-cover"
-                />
-                <div className="p-2">
-                  <div className="text-xl font-bold text-gray-400">
-                    {item.id}
-                  </div>
-                  <div className="overflow-hidden text-ellipsis text-nowrap text-lg font-bold uppercase">
-                    {item.name || `Product ${item.id}`}
+          <Slide direction="up" triggerOnce={true}>
+            <div className="z-10 mb-8 grid grid-cols-6 justify-center gap-8 tablet:grid-cols-3 mobile:grid-cols-2">
+              {ProductList?.map((item: ProductType) => (
+                <div
+                  key={item.id}
+                  onClick={() => {
+                    setShowModal(true);
+                    setSelectedProduct(item);
+                  }}
+                  className="h-52 w-40 border-2 border-black bg-white  shadow-[7px_10px_0px_0px_#000000] hover:scale-105 hover:cursor-pointer hover:transition-all hover:duration-200"
+                >
+                  <img
+                    src={item.image || imgDefault}
+                    alt={`${item.name}-img`}
+                    className="h-[60%] w-40 object-cover"
+                  />
+                  <div className="p-2">
+                    <div className="text-xl font-bold text-gray-400">
+                      {item.id}
+                    </div>
+                    <div className="overflow-hidden text-ellipsis text-nowrap text-lg font-bold uppercase">
+                      {item.name || `Product ${item.id}`}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Slide>
         )}
 
         {!showAll && !isLoading && (
-          <Button text="Show all" onClick={() => setShowAll(true)} />
+          <Slide direction="up" triggerOnce={true}>
+            <Button text="Show all" onClick={() => setShowAll(true)} />
+          </Slide>
         )}
       </div>
       <Modal
