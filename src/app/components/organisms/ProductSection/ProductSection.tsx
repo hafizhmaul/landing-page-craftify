@@ -92,7 +92,7 @@ const ProductSection = () => {
                   />
                   <div className="p-2">
                     <div className="text-xl font-bold text-gray-400">
-                      {item.id}
+                      {item.id} halo
                     </div>
                     <div className="overflow-hidden text-ellipsis text-nowrap text-lg font-bold uppercase">
                       {item.name || `Product ${item.id}`}
